@@ -42,4 +42,11 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+
+    public IActionResult About()
+    {
+        var model = new About("Naprawa samochodów!", "Zajmujemy siê remontem i napraw¹ wszelakich samochodów", ["car", "repair", "garage"]);
+
+        return View(model);
+    }
 }
