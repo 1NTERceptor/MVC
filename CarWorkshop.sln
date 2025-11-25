@@ -5,6 +5,12 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarWorkshop.MVC", "CarWorkshop.MVC\CarWorkshop.MVC.csproj", "{16462CB2-054F-A982-2D91-99509E851657}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarWorkshop.Domain", "CarWorkshop.Domain\CarWorkshop.Domain.csproj", "{5301E384-9D63-484D-84A4-50DB8C7CFEA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarWorkshop.Application", "CarWorkshop.Application\CarWorkshop.Application.csproj", "{CECD311A-424C-41FD-81E0-F2963216771C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarWorkshop.Infrastructure", "CarWorkshop.Infrastructure\CarWorkshop.Infrastructure.csproj", "{81C8EDB8-6403-447F-B354-66DAB3B98050}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +21,23 @@ Global
 		{16462CB2-054F-A982-2D91-99509E851657}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16462CB2-054F-A982-2D91-99509E851657}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16462CB2-054F-A982-2D91-99509E851657}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5301E384-9D63-484D-84A4-50DB8C7CFEA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5301E384-9D63-484D-84A4-50DB8C7CFEA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5301E384-9D63-484D-84A4-50DB8C7CFEA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5301E384-9D63-484D-84A4-50DB8C7CFEA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CECD311A-424C-41FD-81E0-F2963216771C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CECD311A-424C-41FD-81E0-F2963216771C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CECD311A-424C-41FD-81E0-F2963216771C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CECD311A-424C-41FD-81E0-F2963216771C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81C8EDB8-6403-447F-B354-66DAB3B98050}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81C8EDB8-6403-447F-B354-66DAB3B98050}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81C8EDB8-6403-447F-B354-66DAB3B98050}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81C8EDB8-6403-447F-B354-66DAB3B98050}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8C3E6CD5-24A5-4180-8B22-00502DB7CD4E}
 	EndGlobalSection
 EndGlobal
