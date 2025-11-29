@@ -7,5 +7,6 @@
         public DateTime CreatedAt { get; set; }
         public CarWorkshopContactDetails ContactDetails { get; set; } = default!;
         public string EncodedName { get; private set; } = default!;
-        public void EncodeName() => EncodedName = Name.ToLower().Replace(" ","-")
+        public void EncodeName() => EncodedName = Name.ToLower().Replace(" ", "-");
+    }
 }
