@@ -1,6 +1,6 @@
 ﻿namespace CarWorkshop.Domain.Entities
 {
-    class CarWorkshopContactDetails
+    public class CarWorkshopContactDetails
     {
         public string? PhoneNumber { get; set; }
         public string? Street { get; set; }
