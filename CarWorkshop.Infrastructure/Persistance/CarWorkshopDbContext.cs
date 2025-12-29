@@ -10,11 +10,11 @@ namespace CarWorkshop.Infrastructure.Persistance
 
         }
 
-        public DbSet<Domain.Entities.CarWorkshop> CarWorkshops { get; set; }
+        public DbSet<Domain.Entities.CarWorkshopUnit> CarWorkshops { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Domain.Entities.CarWorkshop>()
+            modelBuilder.Entity<Domain.Entities.CarWorkshopUnit>()
                 .OwnsOne(e => e.ContactDetails);
         }
     }
