@@ -1,6 +1,5 @@
 ﻿using CarWorkshop.Application.Models;
 using CarWorkshop.Application.Services;
-using CarWorkshop.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarWorkshop.MVC.Controllers
@@ -28,6 +27,10 @@ namespace CarWorkshop.MVC.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CarWorkshopInputModel carWorkshopUnit)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(carWorkshopUnit);
+            }
             int id = await _carWorkshopService.Creat(carWorkshopUnit);
             return RedirectToAction(nameof(Create));
         }
