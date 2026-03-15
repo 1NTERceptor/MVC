@@ -1,4 +1,5 @@
-﻿using CarWorkshop.Domain.Entities;
+﻿using CarWorkshop.Application.Models;
+using CarWorkshop.Domain.Entities;
 
 namespace CarWorkshop.Domain.Interfaces
 {
@@ -6,5 +7,7 @@ namespace CarWorkshop.Domain.Interfaces
     {
         Task<int> Create(CarWorkshopUnit carWorkshop);
         Task<CarWorkshopUnit> Get(int id);
+        Task<CarWorkshopUnit> GetByName(string name);
+        Task<IEnumerable<CarWorkshopInputModel>> GetAll();    
     }
 }

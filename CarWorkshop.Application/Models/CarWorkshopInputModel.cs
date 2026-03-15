@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using FluentValidation;
+using System.ComponentModel.DataAnnotations;
 
 namespace CarWorkshop.Application.Models
 {
@@ -17,6 +18,23 @@ namespace CarWorkshop.Application.Models
         public string? Street { get; set; }
         public string? City { get; set; }
         public string? PostalCode { get; set; }
-        public string? EncodedName { get; set; }         
+        public string? EncodedName { get; set; }
+    }
+
+    public class CarWorkshopInputModelValidation : AbstractValidator<CarWorkshopInputModel>
+    {
+        public CarWorkshopInputModelValidation()
+        {
+            RuleFor(x => x.Name)
+                .NotEmpty()
+                .Length(3, 20);
+            RuleFor(x => x.Description)
+                .NotEmpty()
+                .WithMessage("Please insert description");
+            RuleFor(x => x.PhoneNumber)
+                .Length(8, 12)
+                .When(x => !string.IsNullOrEmpty(x.PhoneNumber))
+                .WithMessage("Phone number must be between 8 and 12 characters.");
+        }
     }
 }

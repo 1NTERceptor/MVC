@@ -1,6 +1,7 @@
 ﻿using CarWorkshop.Application.Mappings;
+using CarWorkshop.Application.Models;
 using CarWorkshop.Application.Services;
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection; 
 
 namespace CarWorkshop.Application.Extensions
 {
