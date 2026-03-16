@@ -24,9 +24,19 @@ namespace CarWorkshop.Application.Services
             return await _carWorkshopRepository.Create(carWorkshop);
         }
 
-        public async Task<CarWorkshopUnit> Get(int id)
+        public async Task<CarWorkshopInputModel> Get(int id)
         {
-            return await _carWorkshopRepository.Get(id);
+            var model = await _carWorkshopRepository.Get(id);
+
+            return _mapper.Map<CarWorkshopInputModel>(model);
+        }
+
+        public async Task<IEnumerable<CarWorkshopInputModel>> GetAll()
+        {
+            var carWorkshops = await _carWorkshopRepository.GetAll();
+            var dtos = _mapper.Map<IEnumerable<CarWorkshopInputModel>>(carWorkshops);
+
+            return dtos;
         }
     }
 }

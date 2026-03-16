@@ -13,10 +13,10 @@ namespace CarWorkshop.MVC.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Details(int id)
+        public async Task<IActionResult> Index()
         {
-            await _carWorkshopService.Get(id);
-            return View();
+            var carWorkshop = await _carWorkshopService.GetAll();
+            return View(carWorkshop);
         }
 
         public IActionResult Create()
@@ -32,7 +32,7 @@ namespace CarWorkshop.MVC.Controllers
                 return View(carWorkshopUnit);
             }
             int id = await _carWorkshopService.Creat(carWorkshopUnit);
-            return RedirectToAction(nameof(Create));
+            return RedirectToAction(nameof(Index));
         }
     }
 }
