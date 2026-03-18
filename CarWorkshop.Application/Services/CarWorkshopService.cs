@@ -38,5 +38,21 @@ namespace CarWorkshop.Application.Services
 
             return dtos;
         }
+
+        public async Task<CarWorkshopInputModel> GetByName(string name)
+        {
+            var carWorkshop = await _carWorkshopRepository.GetByName(name);
+            var dto = _mapper.Map<CarWorkshopInputModel>(carWorkshop);
+
+            return dto;
+        }
+
+        public async Task<CarWorkshopInputModel> GetByEncodedname(string encodedName)
+        {
+            var carWorkshop = await _carWorkshopRepository.GetByEncodedname(encodedName);
+            var dto = _mapper.Map<CarWorkshopInputModel>(carWorkshop);
+
+            return dto;
+        }
     }
 }

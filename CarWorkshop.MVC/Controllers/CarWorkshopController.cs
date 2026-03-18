@@ -19,6 +19,13 @@ namespace CarWorkshop.MVC.Controllers
             return View(carWorkshop);
         }
 
+        [Route("CarWorkshop/{encodedName}/Details")]
+        public async Task<IActionResult> Details(string encodedName)
+        {
+            var dto = await _carWorkshopService.GetByEncodedname(encodedName);
+            return View(dto);
+        }
+
         public IActionResult Create()
         {
             return View();

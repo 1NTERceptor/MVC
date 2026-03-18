@@ -7,5 +7,7 @@ namespace CarWorkshop.Application.Services
     {
         Task<int> Creat(CarWorkshopInputModel carWorkshop);
         Task<IEnumerable<CarWorkshopInputModel>> GetAll();
+        Task<CarWorkshopInputModel> GetByName(string name);
+        Task<CarWorkshopInputModel> GetByEncodedname(string encodedName);
     }
 }

@@ -41,5 +41,10 @@ namespace CarWorkshop.Infrastructure.Repositories
         {
             return await _dbContext.CarWorkshops.SingleAsync(cw => cw.Name == name);
         }
+
+        public async Task<CarWorkshopUnit> GetByEncodedname(string encodedName)
+        {
+            return await _dbContext.CarWorkshops.SingleAsync(cw => cw.EncodedName == encodedName);
+        }
     }
 }
