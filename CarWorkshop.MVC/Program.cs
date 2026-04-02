@@ -7,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CarWorkshop.Application.Commands.EditCarWorkshopCommand).Assembly));
+
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
 

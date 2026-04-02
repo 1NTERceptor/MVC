@@ -9,6 +9,8 @@ namespace CarWorkshop.Domain.Interfaces
         Task<CarWorkshopUnit> Get(int id);
         Task<CarWorkshopUnit> GetByName(string name);
         Task<CarWorkshopUnit> GetByEncodedname(string encodedname);
-        Task<IEnumerable<CarWorkshopInputModel>> GetAll();    
+        Task<IEnumerable<CarWorkshopInputModel>> GetAll();
+
+        Task<int> Edit(CarWorkshopUnit carWorkshop);
     }
 }
