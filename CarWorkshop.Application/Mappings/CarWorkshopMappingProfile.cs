@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using CarWorkshop.Application.Commands;
+using CarWorkshop.Application.CarWorkshop.Commands;
 using CarWorkshop.Application.Models;
 using CarWorkshop.Domain.Entities;
 

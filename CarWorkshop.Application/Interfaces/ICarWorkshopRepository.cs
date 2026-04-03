@@ -12,5 +12,7 @@ namespace CarWorkshop.Domain.Interfaces
         Task<IEnumerable<CarWorkshopInputModel>> GetAll();
 
         Task<int> Edit(CarWorkshopUnit carWorkshop);
+        Task<CarWorkshopUnit> GetById(int id);
+        Task Commit();
     }
 }

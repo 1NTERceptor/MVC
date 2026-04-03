@@ -1,4 +1,6 @@
-﻿using CarWorkshop.Application.Commands;
+﻿using AutoMapper;
+using CarWorkshop.Application.CarWorkshop.Commands;
+using CarWorkshop.Application.CarWorkshop.Queries;
 using CarWorkshop.Application.Models;
 using CarWorkshop.Application.Services;
 using MediatR;
@@ -9,10 +11,12 @@ namespace CarWorkshop.MVC.Controllers
     {
         private readonly ICarWorkshopService _carWorkshopService;
         private readonly IMediator _mediator;
-        public CarWorkshopController(ICarWorkshopService carWorkshopService, IMediator mediator)
+        private readonly IMapper _mapper;
+        public CarWorkshopController(ICarWorkshopService carWorkshopService, IMediator mediator, IMapper mapper)
         {
             _carWorkshopService = carWorkshopService;
             _mediator = mediator;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -49,28 +53,24 @@ namespace CarWorkshop.MVC.Controllers
         [Route("CarWorkshop/{encodedName}/Edit")]
         public async Task<IActionResult> Edit(string encodedName)
         {
-            var dto = await _carWorkshopService.GetByEncodedname(encodedName);
-            return View(dto);
+            var query = new GetCarWorkshopByEncodednameQuery
+            {
+                EncodedName = encodedName
+            };
+
+            var carWorkshop = await _mediator.Send(query);
+
+            var editCarWorkshopCommand = _mapper.Map<EditCarWorkshopCommand>(carWorkshop);
+
+            return View(editCarWorkshopCommand);
         }        
 
         [HttpPost]
         [Route("CarWorkshop/{encodedName}/Edit")]
-        public async Task<IActionResult> Edit(string encodedName, CarWorkshopInputModel model)
+        public async Task<IActionResult> Edit(string encodedName, EditCarWorkshopCommand cmd)
         {
-            var cmd = new EditCarWorkshopCommand
-            {
-                Id = model.Id,
-                Name = model.Name,
-                Description = model.Description,
-                About = model.About,
-                PhoneNumber = model.PhoneNumber,
-                Street = model.Street,
-                City = model.City,
-                PostalCode = model.PostalCode
-            };
-
             await _mediator.Send(cmd);
-            return RedirectToAction(nameof(Details), new { encodedName = model.Name.ToLower().Replace(" ", "-") });
+            return RedirectToAction(nameof(Details), new { encodedName = encodedName });
         }
     }
 }

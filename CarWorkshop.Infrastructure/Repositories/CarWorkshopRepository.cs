@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using CarWorkshop.Application.Commands;
 using CarWorkshop.Application.Models;
 using CarWorkshop.Domain.Entities;
 using CarWorkshop.Domain.Interfaces;
@@ -53,6 +52,16 @@ namespace CarWorkshop.Infrastructure.Repositories
             _dbContext.CarWorkshops.Update(carWorkshop);
             await _dbContext.SaveChangesAsync();
             return _dbContext.CarWorkshops.Where(cw => cw.Name == carWorkshop.Name).First().Id;
+        }
+
+        public async Task<CarWorkshopUnit> GetById(int id)
+        {
+            return await _dbContext.CarWorkshops.SingleAsync(cw => cw.Id == id);
+        }
+
+        public async Task Commit()
+        {
+            await _dbContext.SaveChangesAsync();
         }
     }
 }

@@ -1,12 +1,11 @@
 ﻿using FluentValidation;
 using MediatR;
 
-namespace CarWorkshop.Application.Commands
+namespace CarWorkshop.Application.CarWorkshop.Commands
 {
-    public class EditCarWorkshopCommand : IRequest<int>
+    public class EditCarWorkshopCommand : IRequest
     {
         public int Id { get; set; }
-        public string Name { get; set; } = default!;
         public string? Description { get; set; }
         public string? About { get; set; }
         public string? PhoneNumber { get; set; }
